@@ -1,21 +1,36 @@
 package EmployeBuilderOops;
 
 public class EmpBuilderOops {
+	int workHours=8;
+	int wagePerHours=20;
+
 	public static void main(String[] args) {
 		
 		EmpBuilderOops emp = new EmpBuilderOops();
-		emp.Attendence();
+		int ans = emp.Attendence();
+		if(ans==1)
+		{
+			int wadge=emp.Wadges();
+			System.out.println("Daily Wages of the employee is : " +wadge);
 		}
-	void Attendence()
+		else
+		{
+			System.out.println("Employee is absent");
+		}
+		}
+	int Attendence()
 	{
 		double attendance = Math.floor(Math.random() * 10) % 2; 
 		if(attendance==1) {
-		  System.out.println("Employee is present");
+		  return 1;
 		}
 		else {
-			System.out.println("Employee is absent");
+			return 0;
 		}
 	}
-
-	
+	int Wadges()
+	{	
+		int dailyWage = (wagePerHours * workHours);
+		return dailyWage;
+	}
 }
