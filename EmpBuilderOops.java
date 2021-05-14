@@ -1,28 +1,32 @@
 package EmployeBuilderOops;
 
-public class EmpBuilderOops {
+
+public class EmpBuilderOops 
+{
+	
 	int isFullTime = 2;
 	int isPartime = 1;
 	int wagePerHours=20;
-//	int workHours=0;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		
 		EmpBuilderOops emp = new EmpBuilderOops();
 		int ans = emp.Attendence();
-		if(ans==1)
-		{
-			int workHours=8;
-			int wadge=emp.Wadges(workHours);
-			System.out.println("Full time Wages of the employee is : " +wadge);
-		}
-		else if(ans==2)
-		{
-			int workHours=4;
-			int wadge=emp.Wadges(workHours);
-			System.out.println("Part time Wages of the employee is : " +wadge);
-		}
-		else {
+		int workHours= 0;
+		int wage= 0;
+		switch(ans){
+		case 1:
+			 workHours=8;
+			 wage=emp.Wages(workHours);
+			System.out.println("Full time Wages of the employee is : " +wage);
+		break;
+		case 2:
+			 workHours=4;
+			 wage= emp.Wages(workHours);
+			System.out.println("Part time Wages of the employee is : " +wage);
+		break;
+		default :
 			System.out.println("Employee is absent");
 		}
 	}
@@ -40,10 +44,9 @@ public class EmpBuilderOops {
 			return 0;
 		}
 	}
-	int Wadges(int workHours)
+	int Wages(int workHours)
 	{	
 		int dailyWage = (wagePerHours * workHours);
 		return dailyWage;
 	}
 }
-
